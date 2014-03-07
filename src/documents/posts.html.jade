@@ -1,0 +1,13 @@
+---
+title: "Psts"
+layout: "post"
+isPage: true
+---
+
+// - docpad.log("info", getCollection("posts").toJSON())
+each post in getCollection("posts").toJSON()
+  .post.pure-u-1-3.bkg-color-1
+    != post.contentRenderedWithoutLayouts
+//  .pure-u-2-3.bkg-color-2
+//    each file in post.getAssociatedFiles().toJSON()
+//      img(src=file.url)  

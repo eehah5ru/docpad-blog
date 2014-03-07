@@ -1,0 +1,28 @@
+html
+  head
+    title= document.title
+    
+    != getBlock("meta").toHTML()
+    
+    
+    != getBlock("styles").add(["/styles/pure.css", "/styles/screen.css"]).toHTML()
+  body
+    .pure-g.bkg-color-3#content
+
+    ul
+      each page in getCollection("pages").toJSON()
+        - if (page.id == document.id)
+          li.active
+            a(href="#{page.url}")
+              = page.title          
+        - else 
+          li.inactive
+            a(href="#{page.url}")
+              = page.title
+            
+    .pure-u-1-1  
+      h1= document.title
+    .pure-u-1-1
+      != content
+    
+    != getBlock("scripts").toHTML()  
